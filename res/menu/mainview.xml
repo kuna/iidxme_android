@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.kuna.iidxme.MainviewActivity" >
+    
+    
+    <group android:id="@+id/menu_group_etcs">
+        <item android:id="@+id/action_help" android:title="Help" android:orderInCategory="1"></item><item
+        android:id="@+id/action_settings"
+        android:orderInCategory="2"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
+    </group>
+    <group android:id="@+id/menu_group_iidxme">
+        <item android:id="@+id/action_login_me" android:title="내 코나미 계정 로그인" android:orderInCategory="3"></item>
+        <item android:id="@+id/action_login_master" android:title="주인님 코나미 계정 로그인" android:orderInCategory="4"></item>
+        <item android:id="@+id/action_add_mycard" android:title="내 어뮤즈 추가" android:orderInCategory="5"></item>
+        <item android:id="@+id/action_remove_mycard" android:title="내 어뮤즈 제거" android:orderInCategory="6"></item>
+        <item android:id="@+id/action_use_mastercard" android:title="주인님 어뮤즈 활성화" android:orderInCategory="7"></item>
+        <item android:id="@+id/action_iidxme" android:title="투덱미 갱신 스크립트" android:orderInCategory="8"></item>
+    </group>
+
+</menu>

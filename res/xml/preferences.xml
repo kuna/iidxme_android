@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:key="myid" android:title="내 코나미 ID"/>
+    <EditTextPreference android:key="mypass" android:title="내 코나미 패스워드" android:inputType="textPassword"/>
+    <EditTextPreference android:key="masterid" android:title="주인님 코나미 ID"/>
+    <EditTextPreference android:key="masterpass" android:title="주인님 코나미 패스워드" android:inputType="textPassword"/>
+    <EditTextPreference android:key="mycardid" android:title="내 이어뮤 UID"/>
+    <EditTextPreference android:key="mycardpass" android:title="내 이어뮤 비밀번호" android:inputType="textPassword"/>
+    <EditTextPreference android:key="mastercardid" android:title="주인님 이어뮤 UID"/>
+    <EditTextPreference android:key="iidxmeid" android:title="iidx.me 아이디"/>
+    <EditTextPreference android:key="iidxmepass" android:title="iidx.me 패스워드" android:inputType="textPassword"/>
+</PreferenceScreen>

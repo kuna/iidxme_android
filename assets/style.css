@@ -1,0 +1,4 @@
+#container { max-width: 420px; margin: 40px auto; padding:0 20px; }
+.clear { clear:both; text-align: center; }
+label { float:left; }
+input { float:right; }
