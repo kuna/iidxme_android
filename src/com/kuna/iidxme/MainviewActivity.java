@@ -71,7 +71,7 @@ public class MainviewActivity extends ActionBarActivity {
 				super.onPageFinished(view, url);
 				Log.d("webview_url", url);
 				Injector.InjectJSFile(_c, view, "jquery-2.1.4.min.js");
-				Injector.InjectJSFile(_c, view, "inject.js");	// inject basic js... and
+				Injector.InjectJSFile(_c, view, "inject_mobile.js");	// inject basic js... and
 				Injector.doTask(view, url);						// check is there any task
 			}
 		});

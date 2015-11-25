@@ -1,14 +1,16 @@
-function enterIDPASS(id, pass) {
+(function(){
+
+window.enterIDPASS = function(id, pass) {
 	$("#KID").val(id);
 	$("#pass").val(pass);
 }
 
-function removeCard() {
+window.removeCard = function() {
 	console.log($("table.table_type6 a"));
 	window.location.href= $("table.table_type6 a")[1].href;
 }
 
-function addCard(cardname, cardpass, paseli) {
+window.addCard = function(cardname, cardpass, paseli) {
 	$("#CRcontents_table input[name='ucd']").val(cardname);
 	$("#CRcontents_table input[name='pass']").val(cardpass);
 	$("#CRcontents_table input[name='ecprop'][value='" + paseli + "']").prop('checked', true);
@@ -16,7 +18,7 @@ function addCard(cardname, cardpass, paseli) {
 	$("form").submit();
 }
 
-function useCard(cardid) {
+window.useCard = function(cardid) {
 	$("td.eapass_detach a").each(function (i, obj) {
 		if (obj.href.indexOf(cardid) >= 0) {
 			window.location.href=obj.href;
@@ -26,7 +28,7 @@ function useCard(cardid) {
 	});
 }
 
-function iidxme(id, pw) {
+window.iidxme = function(id, pw) {
 	// iidxme script
 	if(location.protocol==="https:"){alert("Can't load over https");return;}var s=document.createElement("script");s.id="iidxme";s.type="text/javascript";s.src="http://iidx.me/loader.js";document.head.appendChild(s);
 
@@ -39,7 +41,6 @@ function iidxme(id, pw) {
 	}, 1000);
 }
 
-$(function() {
 	logined = false;
 	// check login status
 	if ($("a[href='/gate/p/logout.html']").length
@@ -48,9 +49,10 @@ $(function() {
 		logined = true;
 	}
 
-	// page loaded 
-	chrome.runtime.sendMessage({method: "onload", logined: logined}, function(response) {
-		console.log(response.status);
-	});
+	if (logined) {
+		return "logined_true";
+	} else {
+		return "logined_false";
+	}
 
-});
+})();
