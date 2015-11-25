@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,7 +22,7 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 @SuppressLint("SetJavaScriptEnabled")
-public class MainviewActivity extends Activity {
+public class MainviewActivity extends ActionBarActivity {
 	private Context _c = this;
 	private WebView wv = null;
 	
