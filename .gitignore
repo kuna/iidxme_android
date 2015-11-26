@@ -10,3 +10,4 @@ env.py
 private_key
 app.pem
 bin/iidxme.apk
+bin/*

@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
@@ -67,12 +68,19 @@ public class MainviewActivity extends ActionBarActivity {
 		});
 		wView.setWebViewClient(new WebViewClient() {
 			@Override
+			public void onPageStarted(WebView view, String url, Bitmap favicon) {
+				super.onPageStarted(view, url, favicon);
+				// show loading status
+			}
+			@Override
 			public void onPageFinished(WebView view, String url) {
 				super.onPageFinished(view, url);
 				Log.d("webview_url", url);
+				// set activity title with current login status
+				
 				Injector.InjectJSFile(_c, view, "jquery-2.1.4.min.js");
 				Injector.InjectJSFile(_c, view, "inject_mobile.js");	// inject basic js... and
-				Injector.doTask(view, url);						// check is there any task
+				Injector.doTask(view, url);								// check is there any task
 			}
 		});
 	    WebSettings webSettings = wView.getSettings();
