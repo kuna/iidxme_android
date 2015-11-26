@@ -107,8 +107,10 @@ public class MainviewActivity extends ActionBarActivity {
 				Injector.doTask(view, url); // check is there any task
 
 				// close loading screen
-				progressDialog.dismiss();
-				progressDialog = null;
+				if (progressDialog != null) {
+					progressDialog.dismiss();
+					progressDialog = null;
+				}
 			}
 		});
 		WebSettings webSettings = wView.getSettings();
