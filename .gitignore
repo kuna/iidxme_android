@@ -1,0 +1,12 @@
+
+
+*.pyc
+test*
+private.py
+env.py
+!testunit.py
+*.swp
+*.bak
+private_key
+app.pem
+bin/iidxme.apk
