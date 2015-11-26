@@ -5,6 +5,7 @@ import java.io.InputStream;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.util.Log;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
@@ -12,6 +13,19 @@ import android.webkit.WebView;
 public class Injector {
 	private static String status = "";		// this indicates what will be done
 	private static Boolean islogined = false;
+	
+	// login handler
+	private static Handler loginHandler = null;
+	private static void setLoginStatus(boolean login) {
+		islogined = login;
+		if (loginHandler != null) {
+			loginHandler.obtainMessage(login?1:0).sendToTarget();
+			Log.d("webview_login", login?"true":"false");
+		}
+	}
+	public static void setLoginHandler(Handler h) {
+		loginHandler = h;
+	}
 	
 	// these are all about settings
 	private static String myid = "";
@@ -44,6 +58,10 @@ public class Injector {
 	public static void makeTask(WebView wv, String taskname) {
 		status = taskname;
 		doTask(wv, wv.getUrl());
+	}
+	
+	public static boolean isLogined() {
+		return islogined;
 	}
 	
 	public static void doTask(WebView wv, String url) {
@@ -148,11 +166,9 @@ public class Injector {
 			@Override
 			public void onReceiveValue(String value) {
 				if (value.indexOf("logined_true")>=0) {
-					Log.d("webview_login", "true");
-					islogined = true;	// CAUTION we can't detect it's surely logined
+					setLoginStatus(true);
 				} else if (value.indexOf("logined_false")>=0) {
-					Log.d("webview_login", "false");
-					islogined = false;
+					setLoginStatus(false);
 				}
 			}
 		});
